@@ -10,11 +10,10 @@ class Publication(models.Model):
     author = models.ForeignKey(
                                 'auth.User',
                                 on_delete=models.CASCADE
-                              )
+                                )
     
     def __str__(self):
         return self.title
     
     def get_absolute_url(self):
         return reverse('Publication-detail', kwargs={'pk': self.pk})
-    
