@@ -7,7 +7,7 @@
     <div>
         {{ publication.content }}   
     </div>
-    <a href="{% url 'Publication-update' publication.pk %}">editar</a> |
-    <a href="{% url 'Publication-delete' publication.pk %}">Borrar</a>
+    <a href="{% url 'publications-update' publication.pk %}">editar</a> |
+    <a href="{% url 'publications-delete' publication.pk %}">Borrar</a>
 
 {% endblock content %}

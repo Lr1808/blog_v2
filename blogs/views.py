@@ -23,9 +23,10 @@ class PublicationUpdateView(UpdateView):
     model = Publication
     template_name = 'post_update.html'
     fields = ['title', 'content']
+    success_url = reverse_lazy('publications-list')
 
 class PublicationDeleteView(DeleteView):
     model = Publication
     template_name = 'post_delete.html'
-    success_url = reverse_lazy('Publications-list')
+    success_url = reverse_lazy('publications-list')
     
