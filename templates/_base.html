@@ -21,24 +21,21 @@
 
     <header>
         <a href="{% url 'publications-list' %}">
-            <h1> publicaciones</h1>
+            <h1> Publicaciones</h1>
         </a> |
         <a href="{% url 'publications-create' %}">Nueva</a>
         {% if user.is_authenticated %}
-        | <span>Hola, {{ user.username }}</span> |
-        <form action="{% url 'logout' %}" method="post" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-
+            | <span>Hola, {{ user.username }}</span> |
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
         {% else %}
-        | <a href="{% url 'login' %}">Login</a> |
-        <a href="{% url 'signup' %}">Sign Up</a>
+            | <a href="{% url 'login' %}">Login</a> |
+            <a href="{% url 'signup' %}">Sign Up</a>
         {% endif %}
 
-
     </header>
-
 
     {% block content %}
     {% endblock content %}

@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from .models import Publication
 from django.views.generic import ListView, DetailView
@@ -10,16 +11,16 @@ class PublicationListView(ListView):
     model = Publication
     template_name = 'home.html'
 
-class PublicationCreteView(CreateView):
+class PublicationCreteView(LoginRequiredMixin, CreateView):
     model = Publication
     template_name = 'create.html'
     fields = ['title', 'content', 'author']
     success_url = reverse_lazy('publications-list')
 
-class PublicationDetailView(DetailView):
+class PublicationDetailView(LoginRequiredMixin, DetailView):
     model = Publication
     template_name = 'publication_detail.html'    
-    
+
 class PublicationUpdateView(UpdateView):
     model = Publication
     template_name = 'post_update.html'
@@ -30,4 +31,3 @@ class PublicationDeleteView(DeleteView):
     model = Publication
     template_name = 'post_delete.html'
     success_url = reverse_lazy('publications-list')
-    
